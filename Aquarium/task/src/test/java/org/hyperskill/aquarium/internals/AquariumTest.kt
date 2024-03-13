@@ -42,8 +42,8 @@ open class AquariumTest<T : Activity>(clazz: Class<T>) : AbstractUnitTest<T>(cla
         val allCaps = this.isAllCaps
         val textSize = this.textSize
         val errorMessageFmt =
-                "expected TextView with id $idString, to be styled with " +
-                        "TextAppearance.MaterialComponents.Body1. On property %s"
+            "expected TextView with id $idString, to be styled with " +
+                    "TextAppearance.MaterialComponents.Body1. On property %s"
         assertEquals(errorMessageFmt.format("textAllCaps"), expectedAllCaps, allCaps)
         assertEquals(errorMessageFmt.format("textSize"), expectedSize, textSize)
     }
@@ -54,15 +54,15 @@ open class AquariumTest<T : Activity>(clazz: Class<T>) : AbstractUnitTest<T>(cla
         val allCaps = this.isAllCaps
         val textSize = this.textSize
         val errorMessageFmt =
-                "expected TextView with id $idString, to be styled with " +
-                        "TextAppearance.MaterialComponents.Body2. On property %s"
+            "expected TextView with id $idString, to be styled with " +
+                    "TextAppearance.MaterialComponents.Body2. On property %s"
         assertEquals(errorMessageFmt.format("textAllCaps"), expectedAllCaps, allCaps)
         assertEquals(errorMessageFmt.format("textSize"), expectedSize, textSize)
     }
 
     internal fun TextView.assertFontFamily(idString: String, expectedFontFamily: String) {
         val errorMessage =
-                "expected TextView with id $idString, to be styled with fontFamily"
+            "expected TextView with id $idString, to be styled with fontFamily"
 
         val shadowTypeface = shadowOf(typeface)
         val actualFontFamily = shadowTypeface.fontDescription.familyName
@@ -71,7 +71,7 @@ open class AquariumTest<T : Activity>(clazz: Class<T>) : AbstractUnitTest<T>(cla
 
     internal fun TextView.assertTextStyle(idString: String,expectedStyle: Int){
         val errorMessage =
-                "expected TextView with id $idString, to be styled with textStyle"
+            "expected TextView with id $idString, to be styled with textStyle"
         val shadowTypeface = shadowOf(typeface)
         val actualStyle = shadowTypeface.fontDescription.style
         assertEquals(errorMessage, expectedStyle, actualStyle)
@@ -85,7 +85,7 @@ open class AquariumTest<T : Activity>(clazz: Class<T>) : AbstractUnitTest<T>(cla
 
     }
     internal fun Drawable?.assertEquals(
-            message: String, expectedResourceId: Int, expectedResourceIdString: String
+        message: String, expectedResourceId: Int, expectedResourceIdString: String
     ) {
 
         val shadowDrawable = this?.let { shadowOf(it) }
@@ -97,9 +97,9 @@ open class AquariumTest<T : Activity>(clazz: Class<T>) : AbstractUnitTest<T>(cla
     }
 
     internal fun TextView.assertText(
-            expectedText: String,
-            idString: String,
-            caseDescription: String) {
+        expectedText: String,
+        idString: String,
+        caseDescription: String) {
 
         val actualText = text.toString()
         val message = "$caseDescription, on property text of TextView with id $idString"

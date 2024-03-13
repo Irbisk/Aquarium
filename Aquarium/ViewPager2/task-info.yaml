@@ -1549,6 +1549,12 @@ files:
           }
       }
     learner_created: false
+  - name: src/main/res/layout/item_page.xml
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/33390#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 13 Mar 2024 15:30:28 UTC"
 record: -1

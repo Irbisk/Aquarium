@@ -6,6 +6,7 @@ import org.hyperskill.aquarium.internals.data.AquariumFakeData.fakeListDescripti
 import org.hyperskill.aquarium.internals.data.AquariumFakeData.fakeListImageUrls
 import org.hyperskill.aquarium.internals.data.AquariumFakeData.fakeListNames
 import org.hyperskill.aquarium.internals.screen.PageScreen
+import org.hyperskill.aquarium.internals.shadow.CustomShadowAsyncDifferConfig
 import org.hyperskill.aquarium.internals.shadow.CustomShadowPicasso
 import org.hyperskill.aquarium.internals.shadow.CustomShadowRequestCreator
 import org.junit.Before
@@ -18,7 +19,11 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@Config(shadows = [CustomShadowPicasso::class, CustomShadowRequestCreator::class])
+@Config(shadows = [
+    CustomShadowPicasso::class,
+    CustomShadowRequestCreator::class,
+    CustomShadowAsyncDifferConfig::class
+])
 class Stage1BUnitTest : AquariumTest<MainActivity>(MainActivity::class.java) {
 
     @Before
@@ -84,9 +89,9 @@ class Stage1BUnitTest : AquariumTest<MainActivity>(MainActivity::class.java) {
             PageScreen(this).apply {
                 val caseDescription = "When using default content on initial page"
                 assertPageTextContent(
-                    caseDescription = caseDescription,
-                    expectedName = names[0],
-                    expectedDescription = descriptions[0]
+                        caseDescription = caseDescription,
+                        expectedName = names[0],
+                        expectedDescription = descriptions[0]
                 )
 
                 assertPageImageRequest(caseDescription, images, 0)
@@ -110,11 +115,11 @@ class Stage1BUnitTest : AquariumTest<MainActivity>(MainActivity::class.java) {
         testActivity(arguments = args) {
             PageScreen(this).apply {
                 val caseDescription =
-                    "When using custom content passed through intent.extras on initial page"
+                        "When using custom content passed through intent.extras on initial page"
                 assertPageTextContent(
-                    caseDescription = caseDescription,
-                    expectedName = names[0],
-                    expectedDescription = descriptions[0]
+                        caseDescription = caseDescription,
+                        expectedName = names[0],
+                        expectedDescription = descriptions[0]
                 )
 
                 assertPageImageRequest(caseDescription, images, 0)
